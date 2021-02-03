@@ -5,26 +5,47 @@ require 'pry'
 class Person
 
 attr_reader :name
-attr_accessor :bank_account, :happiness, :hygine
+attr_accessor :bank_account, :happiness, :hygiene
 
     def initialize(name)
         @name = name
         @bank_account = 25
         @happiness = 8
-        @hygine = hygine
+        @hygiene = 5
     end
 
-    #binding.pry
+    def hygine=(hygine)
+        @hygine = @hygiene + 4
+      end
 
     def happy?
+        if @happiness > 7
+            return true 
+        else 
+           return false 
+        end 
     end
 
-    def clean
+    def clean?
+        if @hygiene > 7
+            return true 
+        else 
+           return false 
+        end 
     end
 
-    def get_paid
+    def get_paid(salary)
+        @bank_account += salary
+         "all about the benjamins"
     end
-
+    def take_bath
+        if @hygiene <= 6
+        hygiene=(hygiene)
+         "♪ Rub-a-dub just relaxing in the tub ♫"
+        else @hygiene = 10
+        end 
+    end 
+    binding.pry
     def work_out
     end
 
@@ -33,6 +54,5 @@ attr_accessor :bank_account, :happiness, :hygine
 
     def start_conversation
     end
-
-    
+  
 end
